@@ -1,0 +1,9 @@
+lyricsgenius==3.0.0
+Flask==1.1.2
+psycopg2-binary==2.8.6
+Flask-Migrate==2.5.3
+Flask-SQLAlchemy==2.4.4
+flask-marshmallow==0.14.0
+python-dotenv==0.14.0
+marshmallow-sqlalchemy==0.24.0
+marshmallow-enum==1.5.1

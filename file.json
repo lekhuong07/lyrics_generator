@@ -1,0 +1,125 @@
+{'artist': {'alternate_names': ['Stefani Germanotta', 'Stefani Joanne Angelina Germanotta', 'Gaga'], 'api_path': '
+/artists/447', 'description': {'plain': 'Stefani Joanne Angelina Germanotta, better known by her stage name Lady G
+aga, is an American singer, songwriter and actress. She is known for her flamboyant fashion statements and live pe
+rformances. Although her music is easily mistaken as vapid, it often has a self-empowering message.\n\nShe started
+ working for Interscope Records when she was 20 years old, writing songs for The Pussycat Dolls, among others. Fro
+m there, she became one of the biggest pop stars in the world, ranking in numerous #1 albums and singles along wit
+h a variety of awards.\n\nShe has acted in several movies and TV shows. In 2016, she won a Golden Globe Award for
+Best Actress in a Miniseries or Television Film for her portrayal of Elizabeth, a lead character in the fifth seas
+on of American Horror Story.\n\nFun Fact: The “Lady Gaga” moniker was created by her former boyfriend and producer
+ Rob Fusari—he sent a text message with an autocorrected version of Queen’s song “Radio Ga Ga” (a song he sang eve
+ry time she entered the studio).'}, 'facebook_name': 'ladygaga', 'followers_count': 2382, 'header_image_url': 'htt
+ps://images.genius.com/cb85e83bf77ac39b736ba8b3fcaa1ad2.1000x563x1.png', 'id': 447, 'image_url': 'https://images.g
+enius.com/9d8ada5ff048fa8cdc002e1ad623ad7d.800x800x1.jpg', 'instagram_name': 'ladygaga', 'is_meme_verified': True,
+ 'is_verified': True, 'name': 'Lady Gaga', 'translation_artist': False, 'twitter_name': 'ladygaga', 'url': 'https:
+//genius.com/artists/Lady-gaga', 'current_user_metadata': {'permissions': ['view_activity_stream'], 'excluded_perm
+issions': ['edit', 'edit_images', 'edit_names', 'edit_anything', 'merge', 'sort_artist_songs', 'follow', 'view_con
+tribution_opportunities', 'edit_translation_artist', 'see_short_id'], 'interactions': {'following': False}}, 'iq':
+ 2581, 'description_annotation': {'_type': 'referent', 'annotator_id': 116340, 'annotator_login': 'palacelight', '
+api_path': '/referents/6926202', 'classification': 'accepted', 'fragment': 'Lady Gaga', 'id': 6926202, 'is_descrip
+tion': True, 'path': '/6926202/Lady-gaga/Lady-gaga', 'range': {'content': 'Lady Gaga'}, 'song_id': None, 'url': 'h
+ttps://genius.com/6926202/Lady-gaga/Lady-gaga', 'verified_annotator_ids': [], 'annotatable': {'api_path': '/artist
+s/447', 'context': None, 'id': 447, 'image_url': 'https://images.genius.com/9d8ada5ff048fa8cdc002e1ad623ad7d.800x8
+00x1.jpg', 'link_title': 'Lady Gaga', 'title': 'Lady Gaga', 'type': 'Artist', 'url': 'https://genius.com/artists/L
+ady-gaga'}, 'annotations': [{'api_path': '/annotations/6926202', 'body': {'plain': 'Stefani Joanne Angelina German
+otta, better known by her stage name Lady Gaga, is an American singer, songwriter and actress. She is known for he
+r flamboyant fashion statements and live performances. Although her music is easily mistaken as vapid, it often ha
+s a self-empowering message.\n\nShe started working for Interscope Records when she was 20 years old, writing song
+s for The Pussycat Dolls, among others. From there, she became one of the biggest pop stars in the world, ranking
+in numerous #1 albums and singles along with a variety of awards.\n\nShe has acted in several movies and TV shows.
+ In 2016, she won a Golden Globe Award for Best Actress in a Miniseries or Television Film for her portrayal of El
+izabeth, a lead character in the fifth season of American Horror Story.\n\nFun Fact: The “Lady Gaga” moniker was c
+reated by her former boyfriend and producer Rob Fusari—he sent a text message with an autocorrected version of Que
+en’s song “Radio Ga Ga” (a song he sang every time she entered the studio).'}, 'comment_count': 4, 'community': Tr
+ue, 'custom_preview': None, 'has_voters': True, 'id': 6926202, 'pinned': False, 'share_url': 'https://genius.com/6
+926202', 'source': None, 'state': 'accepted', 'url': 'https://genius.com/6926202/Lady-gaga/Lady-gaga', 'verified':
+ False, 'votes_total': 173, 'current_user_metadata': {'permissions': ['create_comment'], 'excluded_permissions': [
+'vote', 'edit', 'cosign', 'uncosign', 'destroy', 'accept', 'reject', 'see_unreviewed', 'clear_votes', 'propose_edi
+t_to', 'pin_to_profile', 'unpin_from_profile', 'update_source', 'edit_custom_preview'], 'interactions': {'cosign':
+ False, 'pyong': False, 'vote': None}, 'iq_by_action': {}}, 'authors': [{'attribution': 0.3583815028901734, 'pinne
+d_role': None, 'user': {'api_path': '/users/2614826', 'avatar': {'tiny': {'url': 'https://images.genius.com/avatar
+s/tiny/7630f7fdeeaf598d895b7c7b7bd402a3', 'bounding_box': {'width': 16, 'height': 16}}, 'thumb': {'url': 'https://
+images.genius.com/avatars/thumb/7630f7fdeeaf598d895b7c7b7bd402a3', 'bounding_box': {'width': 32, 'height': 32}}, '
+small': {'url': 'https://images.genius.com/avatars/small/7630f7fdeeaf598d895b7c7b7bd402a3', 'bounding_box': {'widt
+h': 100, 'height': 100}}, 'medium': {'url': 'https://images.genius.com/avatars/medium/7630f7fdeeaf598d895b7c7b7bd4
+02a3', 'bounding_box': {'width': 300, 'height': 400}}}, 'header_image_url': 'https://s3.amazonaws.com/filepicker-i
+mages-rapgenius/lGBxpdSQiqZi5adJkM7R_tumblr_nf224tm3091smn4pqo9_1280.jpg', 'human_readable_role_for_display': 'Edi
+tor', 'id': 2614826, 'iq': 65124, 'login': 'Nightospheric', 'name': 'Nightospheric', 'role_for_display': 'editor',
+ 'url': 'https://genius.com/Nightospheric', 'current_user_metadata': {'permissions': [], 'excluded_permissions': [
+'follow'], 'interactions': {'following': False}}}}, {'attribution': 0.23121387283236994, 'pinned_role': None, 'use
+r': {'api_path': '/users/8534', 'avatar': {'tiny': {'url': 'https://images.genius.com/avatars/tiny/d662e609f7d8c03
+fae7781bed7834f58', 'bounding_box': {'width': 16, 'height': 16}}, 'thumb': {'url': 'https://images.genius.com/avat
+ars/thumb/d662e609f7d8c03fae7781bed7834f58', 'bounding_box': {'width': 32, 'height': 32}}, 'small': {'url': 'https
+://images.genius.com/avatars/small/d662e609f7d8c03fae7781bed7834f58', 'bounding_box': {'width': 100, 'height': 100
+}}, 'medium': {'url': 'https://images.genius.com/avatars/medium/d662e609f7d8c03fae7781bed7834f58', 'bounding_box':
+ {'width': 300, 'height': 400}}}, 'header_image_url': 'https://images.genius.com/82c5966f5fefe7dc9d58df6e709eba45.
+570x144x1.jpg', 'human_readable_role_for_display': 'Contributor', 'id': 8534, 'iq': 355515, 'login': 'Ezzo', 'name
+': 'Romi Ezzo', 'role_for_display': 'contributor', 'url': 'https://genius.com/Ezzo', 'current_user_metadata': {'pe
+rmissions': [], 'excluded_permissions': ['follow'], 'interactions': {'following': False}}}}, {'attribution': 0.156
+06936416184972, 'pinned_role': None, 'user': {'api_path': '/users/116340', 'avatar': {'tiny': {'url': 'https://ima
+ges.rapgenius.com/avatars/tiny/4955c7795dbe34cdb329280940bf8639', 'bounding_box': {'width': 16, 'height': 16}}, 't
+humb': {'url': 'https://images.rapgenius.com/avatars/thumb/4955c7795dbe34cdb329280940bf8639', 'bounding_box': {'wi
+dth': 32, 'height': 32}}, 'small': {'url': 'https://images.rapgenius.com/avatars/small/4955c7795dbe34cdb329280940b
+f8639', 'bounding_box': {'width': 100, 'height': 100}}, 'medium': {'url': 'https://images.rapgenius.com/avatars/me
+dium/4955c7795dbe34cdb329280940bf8639', 'bounding_box': {'width': 300, 'height': 400}}}, 'header_image_url': 'http
+s://images.rapgenius.com/avatars/medium/4955c7795dbe34cdb329280940bf8639', 'human_readable_role_for_display': 'Edi
+tor', 'id': 116340, 'iq': 322290, 'login': 'palacelight', 'name': 'Reuben Tasker', 'role_for_display': 'editor', '
+url': 'https://genius.com/palacelight', 'current_user_metadata': {'permissions': [], 'excluded_permissions': ['fol
+low'], 'interactions': {'following': False}}}}, {'attribution': 0.1445086705202312, 'pinned_role': None, 'user': {
+'api_path': '/users/70148', 'avatar': {'tiny': {'url': 'https://images.genius.com/avatars/tiny/794efa2bc6c5b7b400f
+6362854b28f4d', 'bounding_box': {'width': 16, 'height': 16}}, 'thumb': {'url': 'https://images.genius.com/avatars/
+thumb/794efa2bc6c5b7b400f6362854b28f4d', 'bounding_box': {'width': 32, 'height': 32}}, 'small': {'url': 'https://i
+mages.genius.com/avatars/small/794efa2bc6c5b7b400f6362854b28f4d', 'bounding_box': {'width': 100, 'height': 100}},
+'medium': {'url': 'https://images.genius.com/avatars/medium/794efa2bc6c5b7b400f6362854b28f4d', 'bounding_box': {'w
+idth': 300, 'height': 400}}}, 'header_image_url': 'https://images.genius.com/avatars/medium/794efa2bc6c5b7b400f636
+2854b28f4d', 'human_readable_role_for_display': 'Contributor', 'id': 70148, 'iq': 173671, 'login': 'chihuahua0', '
+name': 'Chihuahua0', 'role_for_display': 'contributor', 'url': 'https://genius.com/chihuahua0', 'current_user_meta
+data': {'permissions': [], 'excluded_permissions': ['follow'], 'interactions': {'following': False}}}}, {'attribut
+ion': 0.034682080924855495, 'pinned_role': None, 'user': {'api_path': '/users/263424', 'avatar': {'tiny': {'url':
+'https://images.genius.com/avatars/tiny/85e2c463998e1034a604b319a4946c10', 'bounding_box': {'width': 16, 'height':
+ 16}}, 'thumb': {'url': 'https://images.genius.com/avatars/thumb/85e2c463998e1034a604b319a4946c10', 'bounding_box'
+: {'width': 32, 'height': 32}}, 'small': {'url': 'https://images.genius.com/avatars/small/85e2c463998e1034a604b319
+a4946c10', 'bounding_box': {'width': 100, 'height': 100}}, 'medium': {'url': 'https://images.genius.com/avatars/me
+dium/85e2c463998e1034a604b319a4946c10', 'bounding_box': {'width': 300, 'height': 400}}}, 'header_image_url': 'http
+s://images.genius.com/d966d1d4f90bed72932964105dda6708.533x517x1.png', 'human_readable_role_for_display': 'Moderat
+or', 'id': 263424, 'iq': 128268, 'login': 'darkdoomhoney', 'name': '\u200bdark doom honey', 'role_for_display': 'm
+oderator', 'url': 'https://genius.com/darkdoomhoney', 'current_user_metadata': {'permissions': [], 'excluded_permi
+ssions': ['follow'], 'interactions': {'following': False}}}}, {'attribution': 0.034682080924855495, 'pinned_role':
+ None, 'user': {'api_path': '/users/4469304', 'avatar': {'tiny': {'url': 'https://images.genius.com/a12cb1bd87cc26
+b146ea8795d8304c85.1000x1000x1.png', 'bounding_box': {'width': 16, 'height': 16}}, 'thumb': {'url': 'https://image
+s.genius.com/a12cb1bd87cc26b146ea8795d8304c85.1000x1000x1.png', 'bounding_box': {'width': 32, 'height': 32}}, 'sma
+ll': {'url': 'https://images.genius.com/a12cb1bd87cc26b146ea8795d8304c85.1000x1000x1.png', 'bounding_box': {'width
+': 100, 'height': 100}}, 'medium': {'url': 'https://images.genius.com/a12cb1bd87cc26b146ea8795d8304c85.1000x1000x1
+.png', 'bounding_box': {'width': 300, 'height': 400}}}, 'header_image_url': 'https://images.genius.com/7d805bd929e
+b60389c4bcfa988ce3757.1000x563x1.png', 'human_readable_role_for_display': 'Editor', 'id': 4469304, 'iq': 521087, '
+login': 'blustery', 'name': '\u200bblustery', 'role_for_display': 'editor', 'url': 'https://genius.com/blustery',
+'current_user_metadata': {'permissions': [], 'excluded_permissions': ['follow'], 'interactions': {'following': Fal
+se}}}}, {'attribution': 0.028901734104046242, 'pinned_role': None, 'user': {'api_path': '/users/1427756', 'avatar'
+: {'tiny': {'url': 'https://images.genius.com/bec31b97689c5ff40d18f52f22e40143.900x900x1.png', 'bounding_box': {'w
+idth': 16, 'height': 16}}, 'thumb': {'url': 'https://images.genius.com/bec31b97689c5ff40d18f52f22e40143.900x900x1.
+png', 'bounding_box': {'width': 32, 'height': 32}}, 'small': {'url': 'https://images.genius.com/bec31b97689c5ff40d
+18f52f22e40143.900x900x1.png', 'bounding_box': {'width': 100, 'height': 100}}, 'medium': {'url': 'https://images.g
+enius.com/bec31b97689c5ff40d18f52f22e40143.900x900x1.png', 'bounding_box': {'width': 300, 'height': 400}}}, 'heade
+r_image_url': 'https://images.genius.com/b03c8c344744d3a77b9737da55e64af1.1000x669x1.jpg', 'human_readable_role_fo
+r_display': 'Editor', 'id': 1427756, 'iq': 106358, 'login': 'sereinik', 'name': '\u200bsereinik', 'role_for_displa
+y': 'editor', 'url': 'https://genius.com/sereinik', 'current_user_metadata': {'permissions': [], 'excluded_permiss
+ions': ['follow'], 'interactions': {'following': False}}}}, {'attribution': 0.011560693641618498, 'pinned_role': N
+one, 'user': {'api_path': '/users/3499648', 'avatar': {'tiny': {'url': 'https://images.genius.com/avatars/tiny/8f9
+0836aa8f074aed33d47df84796d76', 'bounding_box': {'width': 16, 'height': 16}}, 'thumb': {'url': 'https://images.gen
+ius.com/avatars/thumb/8f90836aa8f074aed33d47df84796d76', 'bounding_box': {'width': 32, 'height': 32}}, 'small': {'
+url': 'https://images.genius.com/avatars/small/8f90836aa8f074aed33d47df84796d76', 'bounding_box': {'width': 100, '
+height': 100}}, 'medium': {'url': 'https://images.genius.com/avatars/medium/8f90836aa8f074aed33d47df84796d76', 'bo
+unding_box': {'width': 300, 'height': 400}}}, 'header_image_url': 'https://images.genius.com/5409e988fe3af98ed4c12
+f0c8d8b5375.1000x750x1.jpg', 'human_readable_role_for_display': 'Editor', 'id': 3499648, 'iq': 937128, 'login': 'A
+lexanderJamesM', 'name': 'AlexanderJamesM', 'role_for_display': 'editor', 'url': 'https://genius.com/AlexanderJame
+sM', 'current_user_metadata': {'permissions': [], 'excluded_permissions': ['follow'], 'interactions': {'following'
+: False}}}}], 'cosigned_by': [], 'rejection_comment': None, 'verified_by': None}]}, 'user': {'api_path': '/users/3
+699568', 'avatar': {'tiny': {'url': 'https://images.genius.com/avatars/tiny/5a445cc060ecdf420510738e09debc97', 'bo
+unding_box': {'width': 16, 'height': 16}}, 'thumb': {'url': 'https://images.genius.com/avatars/thumb/5a445cc060ecd
+f420510738e09debc97', 'bounding_box': {'width': 32, 'height': 32}}, 'small': {'url': 'https://images.genius.com/av
+atars/small/5a445cc060ecdf420510738e09debc97', 'bounding_box': {'width': 100, 'height': 100}}, 'medium': {'url': '
+https://images.genius.com/avatars/medium/5a445cc060ecdf420510738e09debc97', 'bounding_box': {'width': 300, 'height
+': 400}}}, 'header_image_url': 'https://images.genius.com/cb85e83bf77ac39b736ba8b3fcaa1ad2.1000x563x1.png', 'human
+_readable_role_for_display': 'Verified Artist', 'id': 3699568, 'iq': 2581, 'login': 'ladygaga', 'name': 'Lady Gaga
+', 'role_for_display': 'verified_artist', 'url': 'https://genius.com/ladygaga', 'current_user_metadata': {'permiss
+ions': [], 'excluded_permissions': ['follow'], 'interactions': {'following': False}}}}}
