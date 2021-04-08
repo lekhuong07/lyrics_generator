@@ -3,28 +3,37 @@ import os, sys
 from secret_token import TOKEN
 
 
-def get_artist(artist_name):
-    genius = lyricsgenius.Genius(TOKEN)
-    artist = genius.search_artist(artist_name, max_songs=0)
+def get_artist(artist_name, num_songs):
+    if num_songs > 50:
+        return None
+    api = lyricsgenius.Genius(TOKEN)
+    artist = api.search_artist(artist_name,max_songs=num_songs)
     return artist
 
-def get_lyrics(song_name):
-    genius = lyricsgenius.Genius(TOKEN)
-    song = genius.search_lyrics(song_name)
-    return song
 
-def get_artist_songs(num_songs, ):
-    genius = lyricsgenius.Genius(TOKEN)
-    artist = get_artist("Lady Gaga")
+def get_lyrics(artist_name, num_songs):
+    artist = get_artist(artist_name, num_songs)
+    result = []
+    for s in artist.songs:
+        lines = s.lyrics.split("\n")
+        result.append("<s>")
+        for line in lines:
+            if len(line.split(" ")) > 2:
+                for w in line.split(" "):
+                    result.append(w)
+        result.append("</s>")
+    return result
 
 
 if __name__ == "__main__":
+    result = get_lyrics("Lady Gaga", 3)
+    print(result)
+
+    '''
     genius = lyricsgenius.Genius(TOKEN)
-    artist = get_artist("Lady Gaga")
-    print("Artist id:", artist._body['api_path'])
     art = genius.artist_songs(447)
     print(len(art['songs']))
-    for s in art['songs']:
-        print(s.keys())
-        break
+    
+    '''
+
 
