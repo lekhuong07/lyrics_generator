@@ -1,4 +1,4 @@
-import search_api as sa
+from api import search_api as sa
 
 
 # Get a certain n-gram:
