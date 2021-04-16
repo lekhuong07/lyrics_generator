@@ -24,7 +24,11 @@ def get_upto_ngrams(input_list, n):
 # len(term) > 1-> has term needs to be calculated B, given term A (A is a tuple):
 def calculate_prob(ngram, term):
     if len(term) == 1:
-        return ngram[1][term[0]] / (sum(s) for s in ngram[1].values())
+        a = sum([s for s in ngram[1].values()])
+        b = ngram[1][term]
+        result = ngram[1][term] / sum([s for s in ngram[1].values()])
+        return result
+       # else:
     else:
         A = term[:-1]  # n-1 gram
         if len(term) > len(ngram):
@@ -34,5 +38,4 @@ def calculate_prob(ngram, term):
 
 if __name__ == "__main__":
     lyrics = sa.get_lyrics("Lady Gaga", 3)
-    l = get_anagrams(lyrics, 2)
-    print(l)
+

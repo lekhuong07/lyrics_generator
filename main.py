@@ -2,6 +2,7 @@ import lyricsgenius
 import os
 from secret_token import TOKEN
 from flask import Flask, request, jsonify
+import api.ngram as ngram
 
 app = Flask(__name__)
 app.config["DEBUG"] = True
@@ -31,10 +32,16 @@ def get_artists():
     return artists
 
 if __name__ == "__main__":
-    app.run(threaded=True, port=5000)
-    #genius = lyricsgenius.Genius(TOKEN)
-    #artist = genius.search_artist("Lady Gaga", max_songs=10)
+    #app.run(threaded=True, port=5000)
+    genius = lyricsgenius.Genius(TOKEN)
+    artist = genius.search_artist("Lady Gaga", max_songs=10)
+    lyrics = []
+    for song in artist.songs:
+        tokens = song.lyrics.split(" ")
+        lyrics.extend(tokens)
+    model = ngram.NGramLM(lyrics, 3)
+    result = model.generate_text(50)
+    print(result)
     #song = genius.search_songs("Dynamite", per_page=10, page=1)
-    #print(artist.songs)
 
 
