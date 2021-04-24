@@ -1,4 +1,4 @@
-import ulti as ut
+import api.ulti as ut
 import random
 import math as ma
 
@@ -11,7 +11,7 @@ class NGramLM():
         for i in range(1, n + 1):
             self.probability[i] = {}
             for word in self.all_ngram[i]:
-                ut.calculate_prob(self.all_ngram, word)
+                self.probability[i][word] = ut.calculate_prob(self.all_ngram, word)
 
     def generate_text(self, length, prompt=[]):
         result = [word for word in prompt]
