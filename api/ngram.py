@@ -1,4 +1,6 @@
 import api.ulti as ut
+import api.analysis as ana
+
 import random
 import math as ma
 
@@ -12,6 +14,15 @@ class NGramLM():
             self.probability[i] = {}
             for word in self.all_ngram[i]:
                 self.probability[i][word] = ut.calculate_prob(self.all_ngram, word)
+        # setup all of the possible guess
+        self.guess = {}
+        for i in range(2, n + 1):
+            for words in self.probability[i]:
+                keyList = words[:-1]
+                tup = (words[-1], self.probability[i][words])
+                if keyList not in self.guess:
+                    self.guess[keyList] = []
+                self.guess[keyList].append(tup)
 
     def generate_text(self, length, prompt=[]):
         result = [word for word in prompt]
@@ -19,8 +30,8 @@ class NGramLM():
             score = random.random()
             # print("Result is: ", result)
             # print("Prompt is: ", prompt)
-            if len(prompt) >= self.ngram:
-                prompt = prompt[len(prompt) - self.ngram + 1:]
+            if len(prompt) >= self.n:
+                prompt = prompt[len(prompt) - self.n + 1:]
             if tuple(prompt) in self.guess:
                 for word, prob in self.guess[tuple(prompt)]:
                     if score < prob:
@@ -46,7 +57,68 @@ class NGramLM():
                         prompt = []
                     else:
                         prompt = prompt[1:]
-        return result
+        final = ""
+        for i in range(len(result)):
+            if i == len(result) - 1:
+                final += result[i]
+            else:
+                final += result[i] + " "
+        return final
+
+    def generate_song(self, artist):
+        analysis = ana.artist_analysis(artist)
+        lyrics = ""
+        if analysis['Intro'][0] >= 0.5:
+            lyrics += "[Intro]\n"
+            generated = self.generate_text(analysis['Intro'][1], prompt=[])
+            generated = generated.capitalize()
+            lyrics += generated
+            lyrics += "\n"
+        if analysis['Chorus'][0] >= 1.5:
+            chorus = self.generate_text(analysis['Chorus'][1], prompt=[])
+            lyrics += "[Verse 1]\n"
+            generated = self.generate_text(analysis['Verse'][1], prompt=[])
+            generated = generated.capitalize()
+            lyrics += generated
+            lyrics += "\n"
+
+            lyrics += "[Chorus]\n"
+            lyrics += chorus
+            lyrics += "\n"
+
+            lyrics += "[Verse 2]\n"
+            generated = self.generate_text(analysis['Verse'][1], prompt=[])
+            generated = generated.capitalize()
+            lyrics += generated
+            lyrics += "\n"
+
+            lyrics += "[Chorus]\n"
+            lyrics += chorus
+            lyrics += "\n"
+
+            lyrics += "[Outro]\n"
+            generated = self.generate_text(analysis['Verse'][1], prompt=[])
+            generated = generated.capitalize()
+            lyrics += generated
+            lyrics += "\n"
+        else:
+            chorus = self.generate_text(analysis['Chorus'][1], prompt=[])
+            lyrics += "[Verse 1]\n"
+            generated = self.generate_text(analysis['Verse'][1], prompt=[])
+            generated = generated.capitalize()
+            lyrics += generated
+            lyrics += "\n"
+
+            lyrics += "[Chorus]\n"
+            lyrics += chorus
+            lyrics += "\n"
+
+            lyrics += "[Verse 2]\n"
+            generated = self.generate_text(analysis['Verse'][1], prompt=[])
+            generated = generated.capitalize()
+            lyrics += generated
+            lyrics += "\n"
+        return lyrics
 
     def score_text(self, text):
         res = 0
@@ -60,7 +132,7 @@ class NGramLM():
         i = 1
         while i <= len(text):
             curr_tuple = tuple(curr)
-            if len(curr) <= self.ngram:
+            if len(curr) <= self.n:
                 if curr_tuple in self.probability[len(curr)]:
                     curr_prob = self.probability[len(curr)][curr_tuple]
                     # print(curr_tuple, curr_prob)

@@ -3,6 +3,8 @@ import os
 from secret_token import TOKEN
 from flask import Flask, request, jsonify
 import api.ngram as ngram
+import api.search_api as apisa
+import api.analysis as apia
 
 app = Flask(__name__)
 app.config["DEBUG"] = True
@@ -31,17 +33,21 @@ def get_artists():
     artists = genius.search_artists("*", per_page, page_number)
     return artists
 
+
 if __name__ == "__main__":
     #app.run(threaded=True, port=5000)
+
+    #lyrics = []
+    #for song in artist.songs:
+    #    tokens = song.lyrics.split(" ")
+        #lyrics.extend(tokens)
     genius = lyricsgenius.Genius(TOKEN)
-    artist = genius.search_artist("Lady Gaga", max_songs=10)
-    lyrics = []
-    for song in artist.songs:
-        tokens = song.lyrics.split(" ")
-        lyrics.extend(tokens)
+    artist = genius.search_artist("Lady Gaga", max_songs=50)
+    lyrics = apisa.get_lyrics(artist)
+
+
     model = ngram.NGramLM(lyrics, 3)
-    result = model.generate_text(50)
+    result = model.generate_song(artist)
     print(result)
-    #song = genius.search_songs("Dynamite", per_page=10, page=1)
 
 

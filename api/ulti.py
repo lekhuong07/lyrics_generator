@@ -1,4 +1,26 @@
-from api import search_api as sa
+from api.search_api import get_artist
+from spacy.lang.en import English
+import string
+from tqdm.notebook import tqdm
+
+nlp = English()
+tokenizer = nlp.tokenizer
+
+
+def get_average_song_length(artist_name, num_songs=5):
+    artist = get_artist(artist_name, num_songs)
+    result = []
+    for s in artist.songs:
+        lines = s.lyrics.split("\n")
+        print(line)
+        result.append("<s>")
+        for line in lines:
+            for w in tokenizer(line.strip().lower()):
+                if w.text not in string.punctuation:
+                    result.append(w.text)
+        result.append("</s>")
+        print("\n")
+    return result
 
 
 # Get a certain n-gram:
@@ -37,5 +59,4 @@ def calculate_prob(ngram, term):
 
 
 if __name__ == "__main__":
-    lyrics = sa.get_lyrics("Lady Gaga", 3)
-
+    lyrics = get_average_song_length("Lady Gaga",1)
