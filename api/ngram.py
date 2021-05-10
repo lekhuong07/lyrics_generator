@@ -1,8 +1,12 @@
-import api.ulti as ut
-import api.analysis as ana
+import ulti as ut
+import analysis as ana
 
 import random
 import math as ma
+
+import lyricsgenius
+from secret_token import TOKEN
+import search_api as apisa
 
 
 class NGramLM():
@@ -83,7 +87,7 @@ class NGramLM():
             lyrics += "\n"
 
             lyrics += "[Chorus]\n"
-            lyrics += chorus
+            lyrics += chorus.capitalize()
             lyrics += "\n"
 
             lyrics += "[Verse 2]\n"
@@ -93,7 +97,7 @@ class NGramLM():
             lyrics += "\n"
 
             lyrics += "[Chorus]\n"
-            lyrics += chorus
+            lyrics += chorus.capitalize()
             lyrics += "\n"
 
             lyrics += "[Outro]\n"
@@ -110,7 +114,7 @@ class NGramLM():
             lyrics += "\n"
 
             lyrics += "[Chorus]\n"
-            lyrics += chorus
+            lyrics += chorus.capitalize()
             lyrics += "\n"
 
             lyrics += "[Verse 2]\n"
@@ -151,3 +155,18 @@ class NGramLM():
 
         res *= -1 / len(text)
         return 2 ** (res)
+
+if __name__ == "__main__":
+    #app.run(threaded=True, port=5000)
+
+    #lyrics = []
+    #for song in artist.songs:
+    #    tokens = song.lyrics.split(" ")
+        #lyrics.extend(tokens)
+    genius = lyricsgenius.Genius(TOKEN)
+    artist = genius.search_artist("Lady Gaga", max_songs=10)
+    lyrics = apisa.get_lyrics(artist)[0]
+    print("Generate with NGramLM")
+    model = NGramLM(lyrics, 3)
+    result = model.generate_song(artist)
+    print(result)

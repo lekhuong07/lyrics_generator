@@ -1,4 +1,7 @@
-from api.search_api import get_artist
+import lyricsgenius
+from secret_token import TOKEN
+
+from search_api import get_artist, get_lyrics
 from spacy.lang.en import English
 import string
 from tqdm.notebook import tqdm
@@ -50,7 +53,7 @@ def calculate_prob(ngram, term):
         b = ngram[1][term]
         result = ngram[1][term] / sum([s for s in ngram[1].values()])
         return result
-       # else:
+    # else:
     else:
         A = term[:-1]  # n-1 gram
         if len(term) > len(ngram):
@@ -58,5 +61,20 @@ def calculate_prob(ngram, term):
         return ngram[len(term)][term] / ngram[len(A)][A]
 
 
+def list_to_sentence(input):
+    # initialize an empty string
+    str1 = ""
+
+    # traverse in the string
+    for s in input:
+        str1 += s
+        str1 += " "
+
+        # return string
+    return str1
+
+
 if __name__ == "__main__":
-    lyrics = get_average_song_length("Lady Gaga",1)
+    genius = lyricsgenius.Genius(TOKEN)
+    artist = genius.search_artist("Lady Gaga", max_songs=3)
+    lyrics = get_lyrics(artist)

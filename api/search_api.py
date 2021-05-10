@@ -4,7 +4,6 @@ from secret_token import TOKEN
 
 from spacy.lang.en import English
 import string
-from tqdm.notebook import tqdm
 
 nlp = English()
 tokenizer = nlp.tokenizer
@@ -22,11 +21,10 @@ def get_artist(artist_name, num_songs):
 #artist here is an object returned from the api call
 def get_lyrics(artist):
     result = []
-    analysis = {}
-
+    lstmresult = []
     for s in artist.songs:
         lines = s.lyrics.split("\n")
-        result.append("<s>")
+        forlstm = lines
         for line in lines:
             if line != "":
                 if line[0] != "[":
@@ -39,8 +37,14 @@ def get_lyrics(artist):
                         else:
                             if word_text not in string.punctuation:
                                 result.append(word_text)
-        result.append("</s>")
-    return result
+                    result.append("\n")
+                else:
+                    forlstm.remove(line)
+            else:
+                forlstm.remove(line)
+        lstmresult += forlstm
+        #print(result[3:7])
+    return result, lstmresult
 
 
 if __name__ == "__main__":
