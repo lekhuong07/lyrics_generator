@@ -185,7 +185,12 @@ class RnnLM():
 
 if __name__ == "__main__":
     genius = lyricsgenius.Genius(TOKEN)
-    artist = genius.search_artist("Lady Gaga", max_songs=10)
+    while True:
+        try:
+            artist = genius.search_artist("Lady Gaga", max_songs=10)
+            break
+        except:
+            pass
     lyrics = get_lyrics(artist)[1]
     #print("Lyrics is:", lyrics)
     lm = RnnLM(lyrics, artist)

@@ -19,6 +19,7 @@ def artist_analysis(artist):
     num_songs = len(artist.songs)
     for s in artist.songs:
         lines = s.lyrics.split("\n")
+        temp=""
         for line in lines:
             if line != "":
                 if line[0] == "[":
@@ -55,7 +56,8 @@ def artist_analysis(artist):
                             if word_text not in string.punctuation:
                                 result.append(word_text)
                                 part_length += 1
-                    analysis[temp][1] += part_length
+                    if temp != "" and temp in analysis:
+                        analysis[temp][1] += part_length
 
     print(analysis)
     for k in analysis.keys():
@@ -70,6 +72,11 @@ def artist_analysis(artist):
 
 if __name__ == "__main__":
     genius = lyricsgenius.Genius(TOKEN)
-    artist = genius.search_artist("Lady Gaga", max_songs=50)
+    while True:
+        try:
+            artist = genius.search_artist("Katy Perry", max_songs=50)
+            break
+        except:
+            pass
     result = artist_analysis(artist)
     print(result)

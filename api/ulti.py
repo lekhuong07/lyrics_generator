@@ -76,5 +76,5 @@ def list_to_sentence(input):
 
 if __name__ == "__main__":
     genius = lyricsgenius.Genius(TOKEN)
-    artist = genius.search_artist("Lady Gaga", max_songs=3)
+    artist = genius.search_artist("Kanye West", max_songs=3)
     lyrics = get_lyrics(artist)
