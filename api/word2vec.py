@@ -7,26 +7,14 @@ import math as ma
 import lyricsgenius
 from secret_token import TOKEN
 import search_api as apisa
+from gensim.models import Word2Vec
 
-
-class NGramLM():
+class word2vecLM():
     def __init__(self, input_list, n):
         self.n = n
         self.all_ngram = ut.get_upto_ngrams(input_list, n)
-        self.probability = {}
-        for i in range(1, n + 1):
-            self.probability[i] = {}
-            for word in self.all_ngram[i]:
-                self.probability[i][word] = ut.calculate_prob(self.all_ngram, word)
-        # setup all of the possible guess
-        self.guess = {}
-        for i in range(2, n + 1):
-            for words in self.probability[i]:
-                keyList = words[:-1]
-                tup = (words[-1], self.probability[i][words])
-                if keyList not in self.guess:
-                    self.guess[keyList] = []
-                self.guess[keyList].append(tup)
+        word2vec = Word2Vec(self.all_ngram, min_count=n)
+
 
     def generate_text(self, length, prompt=[]):
         result = [word for word in prompt]
@@ -172,6 +160,6 @@ if __name__ == "__main__":
             pass
     lyrics = apisa.get_lyrics(artist)[0]
     print("Generate with NGramLM")
-    model = NGramLM(lyrics, 3)
+    model = word2vecLM(lyrics, 3)
     result = model.generate_song(artist)
     print(result)
