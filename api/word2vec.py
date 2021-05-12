@@ -12,7 +12,8 @@ from gensim.models import Word2Vec
 class word2vecLM():
     def __init__(self, input_list, n):
         self.n = n
-        self.all_ngram = ut.get_upto_ngrams(input_list, n)
+        self.all_ngram = ut.get_tokens(input_list, n)
+        print(self.all_ngram)
         word2vec = Word2Vec(self.all_ngram, min_count=n)
 
 
@@ -154,12 +155,12 @@ if __name__ == "__main__":
     genius = lyricsgenius.Genius(TOKEN)
     while True:
         try:
-            artist = genius.search_artist("Taylor Swift", max_songs=50)
+            artist = genius.search_artist("Lady Gaga", max_songs=5)
             break
         except:
             pass
     lyrics = apisa.get_lyrics(artist)[0]
     print("Generate with NGramLM")
     model = word2vecLM(lyrics, 3)
-    result = model.generate_song(artist)
-    print(result)
+    #result = model.generate_song(artist)
+    #print(result)

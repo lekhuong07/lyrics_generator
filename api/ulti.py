@@ -25,6 +25,12 @@ def get_average_song_length(artist_name, num_songs=5):
         print("\n")
     return result
 
+def get_tokens(input_list, n):
+    tokens = []
+    for i in range(len(input_list) - (n - 1)):
+        t = tuple(input_list[i:i + n])
+        tokens.append(t)
+    return tokens
 
 # Get a certain n-gram:
 def get_ngrams(input_list, n):
