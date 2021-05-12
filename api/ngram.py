@@ -164,7 +164,12 @@ if __name__ == "__main__":
     #    tokens = song.lyrics.split(" ")
         #lyrics.extend(tokens)
     genius = lyricsgenius.Genius(TOKEN)
-    artist = genius.search_artist("Lady Gaga", max_songs=10)
+    while True:
+        try:
+            artist = genius.search_artist("Taylor Swift", max_songs=50)
+            break
+        except:
+            pass
     lyrics = apisa.get_lyrics(artist)[0]
     print("Generate with NGramLM")
     model = NGramLM(lyrics, 3)

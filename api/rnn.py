@@ -15,12 +15,12 @@ import analysis as ana
 from random import randrange
 from tqdm import tqdm
 
-
 '''
 #Generate text using Single Layer LSTM Model
 class RnnLM():
     def __init__(self, input_list, n):
 '''
+
 
 class RnnLM():
     def __init__(self, input_lyrics, artist_obj):
@@ -33,16 +33,17 @@ class RnnLM():
         # training features (x) will be a list
         self.max_sequence_len = max([len(x) for x in input_sequences])  # calculating the length of the longest sequence
         self.artist = artist_obj
-        #print(self.input_sequences, self.total_words, self.max_sequence_len)
+        # print(self.input_sequences, self.total_words, self.max_sequence_len)
 
     def lstm_index(self, ll):
         self.lyr = ll
-        #print("Lyrics is: ", self.lyr, "len: ", len(self.lyr))
+        # print("Lyrics is: ", self.lyr, "len: ", len(self.lyr))
         self.tokenizer.fit_on_texts(ll)
         total_words = len(self.tokenizer.word_index) + 1
         res = []
         for line in ll:
-            token_list = self.tokenizer.texts_to_sequences([line])[0]  # converts each sentence as its tokenized equivalent
+            token_list = self.tokenizer.texts_to_sequences([line])[
+                0]  # converts each sentence as its tokenized equivalent
             for i in range(1, len(token_list)):
                 n_gram_sequence = token_list[:i + 1]  # generating n gram sequences
                 res.append(n_gram_sequence)  # appending each n gram sequence to the list of our features (xs)
@@ -50,7 +51,8 @@ class RnnLM():
 
     def generate_lstm_text(self, model, starter, length):
         for _ in tqdm(range(length)):
-            token_list = self.tokenizer.texts_to_sequences([starter])[0]  # converting our input_phrase to tokens and excluding the out of vcabulary words
+            token_list = self.tokenizer.texts_to_sequences([starter])[
+                0]  # converting our input_phrase to tokens and excluding the out of vcabulary words
             token_list = pad_sequences([token_list],
                                        maxlen=self.max_sequence_len - 1,
                                        padding='pre')  # padding the input_phrase
@@ -65,11 +67,11 @@ class RnnLM():
         return starter
 
     def generate_lyrics(self, model):
-        #print(self.lyr[randrange(len(self.lyr))], len(self.lyr[randrange(len(self.lyr))]))
+        # print(self.lyr[randrange(len(self.lyr))], len(self.lyr[randrange(len(self.lyr))]))
         analysis = ana.artist_analysis(self.artist)
         lyrics_starter = ""
         num_words = int(analysis['Chorus'][1])
-        num_words += int(analysis['Verse'][1])*3
+        num_words += int(analysis['Verse'][1]) * 3
         if analysis['Intro'][0] >= 0.5:
             num_words += int(analysis['Intro'][1])
             lyrics_starter += "[Intro]\n"
@@ -81,53 +83,16 @@ class RnnLM():
         index = 0
         next_index = 0
         if analysis['Intro'][0] >= 0.5:
-            next_index += int(analysis['Intro'][1])+1
-            
+            next_index += int(analysis['Intro'][1]) + 1
+
             intro = generated[:next_index]
             lyrics_starter += ut.list_to_sentence(intro).capitalize()
             lyrics_starter += "\n"
-            index += int(analysis['Intro'][1])+1
+            index += int(analysis['Intro'][1]) + 1
 
         if analysis['Chorus'][0] >= 1.5:
-            next_index += int(analysis['Verse'][1])+1
-            
-            lyrics_starter += "[Verse 1]\n"
-            verse1 = generated[index:next_index]
-            lyrics_starter += ut.list_to_sentence(verse1).capitalize()
-            lyrics_starter += "\n"
-            index += int(analysis['Verse'][1])+1
-
-            lyrics_starter += "[Chorus]\n"
-            next_index += int(analysis['Chorus'][1])+1
-            
-            chorus = generated[index:next_index]
-            lyrics_starter += ut.list_to_sentence(chorus).capitalize()
-            lyrics_starter += "\n"
-            index += int(analysis['Chorus'][1]) + 1
-
-            lyrics_starter += "[Verse 2]\n"
             next_index += int(analysis['Verse'][1]) + 1
-            
-            verse2 = generated[index:next_index]
-            lyrics_starter += ut.list_to_sentence(verse2).capitalize()
-            lyrics_starter += "\n"
-            index += int(analysis['Chorus'][1]) + 1
 
-            lyrics_starter += "[Chorus]\n"
-            lyrics_starter += ut.list_to_sentence(chorus).capitalize()
-            lyrics_starter += "\n"
-
-            lyrics_starter += "[Outro]\n"
-            next_index += int(analysis['Verse'][1]) + 1
-            
-            outro = generated[index:next_index]
-            lyrics_starter += ut.list_to_sentence(outro).capitalize()
-            lyrics_starter += "\n"
-            index += int(analysis['Chorus'][1]) + 1
-
-        else:
-            next_index += int(analysis['Verse'][1]) + 1
-            
             lyrics_starter += "[Verse 1]\n"
             verse1 = generated[index:next_index]
             lyrics_starter += ut.list_to_sentence(verse1).capitalize()
@@ -136,7 +101,7 @@ class RnnLM():
 
             lyrics_starter += "[Chorus]\n"
             next_index += int(analysis['Chorus'][1]) + 1
-            
+
             chorus = generated[index:next_index]
             lyrics_starter += ut.list_to_sentence(chorus).capitalize()
             lyrics_starter += "\n"
@@ -144,7 +109,44 @@ class RnnLM():
 
             lyrics_starter += "[Verse 2]\n"
             next_index += int(analysis['Verse'][1]) + 1
-            
+
+            verse2 = generated[index:next_index]
+            lyrics_starter += ut.list_to_sentence(verse2).capitalize()
+            lyrics_starter += "\n"
+            index += int(analysis['Chorus'][1]) + 1
+
+            lyrics_starter += "[Chorus]\n"
+            lyrics_starter += ut.list_to_sentence(chorus).capitalize()
+            lyrics_starter += "\n"
+
+            lyrics_starter += "[Outro]\n"
+            next_index += int(analysis['Verse'][1]) + 1
+
+            outro = generated[index:next_index]
+            lyrics_starter += ut.list_to_sentence(outro).capitalize()
+            lyrics_starter += "\n"
+            index += int(analysis['Chorus'][1]) + 1
+
+        else:
+            next_index += int(analysis['Verse'][1]) + 1
+
+            lyrics_starter += "[Verse 1]\n"
+            verse1 = generated[index:next_index]
+            lyrics_starter += ut.list_to_sentence(verse1).capitalize()
+            lyrics_starter += "\n"
+            index += int(analysis['Verse'][1]) + 1
+
+            lyrics_starter += "[Chorus]\n"
+            next_index += int(analysis['Chorus'][1]) + 1
+
+            chorus = generated[index:next_index]
+            lyrics_starter += ut.list_to_sentence(chorus).capitalize()
+            lyrics_starter += "\n"
+            index += int(analysis['Chorus'][1]) + 1
+
+            lyrics_starter += "[Verse 2]\n"
+            next_index += int(analysis['Verse'][1]) + 1
+
             verse2 = generated[index:next_index]
             lyrics_starter += ut.list_to_sentence(verse2).capitalize()
             lyrics_starter += "\n"
@@ -152,7 +154,7 @@ class RnnLM():
 
             lyrics_starter += "[Outro]\n"
             next_index += int(analysis['Verse'][1]) + 1
-            
+
             outro = generated[index:next_index]
             lyrics_starter += ut.list_to_sentence(outro).capitalize()
             lyrics_starter += "\n"
@@ -163,7 +165,7 @@ class RnnLM():
         input_sequences = np.array(pad_sequences(self.input_sequences,
                                                  maxlen=self.max_sequence_len,
                                                  padding='pre'))  # pre-pading each value of the input_sequence
-        #print(input_sequences, len(input_sequences))
+        # print(input_sequences, len(input_sequences))
         xs, labels = input_sequences[:, :-1], input_sequences[:, -1]  # creating xs and their labels using numpy slicing
         ys = tf.keras.utils.to_categorical(labels, num_classes=self.total_words)  # creating one hot encoding values
 
@@ -185,9 +187,14 @@ class RnnLM():
 
 if __name__ == "__main__":
     genius = lyricsgenius.Genius(TOKEN)
-    artist = genius.search_artist("Lady Gaga", max_songs=10)
+    while True:
+        try:
+            artist = genius.search_artist("Lady Gaga", max_songs=10)
+            break
+        except:
+            pass
     lyrics = get_lyrics(artist)[1]
-    #print("Lyrics is:", lyrics)
+    # print("Lyrics is:", lyrics)
     lm = RnnLM(lyrics, artist)
     song = lm.generate_song()
     print(song)
