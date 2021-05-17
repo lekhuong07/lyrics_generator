@@ -12,9 +12,29 @@ from gensim.models import Word2Vec
 class word2vecLM():
     def __init__(self, input_list, n):
         self.n = n
-        self.all_ngram = ut.get_tokens(input_list, n)
-        print(self.all_ngram)
-        word2vec = Word2Vec(self.all_ngram, min_count=n)
+        self.ngram = ut.get_tokens(input_list)
+        wordlist = []
+        wordlist.append(self.ngram)
+        self.word2vec = Word2Vec(sentences=wordlist, vector_size=100, window=n, min_count=1, workers=4)
+        self.sim_words = []
+
+        self.all_ngram = ut.get_upto_ngrams(input_list, n)
+        self.probability = {}
+        for i in range(1, n + 1):
+            self.probability[i] = {}
+            for word in self.all_ngram[i]:
+                self.probability[i][word] = ut.calculate_prob(self.all_ngram, word)
+
+
+        # setup all of the possible guess
+        self.guess = {}
+        for i in range(2, n + 1):
+            for words in self.probability[i]:
+                keyList = words[:-1]
+                tup = (words[-1], self.probability[i][words])
+                if keyList not in self.guess:
+                    self.guess[keyList] = []
+                self.guess[keyList].append(tup)
 
 
     def generate_text(self, length, prompt=[]):
@@ -25,12 +45,13 @@ class word2vecLM():
             # print("Prompt is: ", prompt)
             if len(prompt) >= self.n:
                 prompt = prompt[len(prompt) - self.n + 1:]
-            if tuple(prompt) in self.guess:
+            if tuple(prompt) in self.guess and tuple(prompt) in self.sim_words:
                 for word, prob in self.guess[tuple(prompt)]:
                     if score < prob:
                         # print("Guess tuple ", word)
                         prompt.append(word)
                         result.append(word)
+                        self.sim_words = self.word2vec.wv.most_similar(word)
                         break
                     else:
                         score -= prob
@@ -42,6 +63,7 @@ class word2vecLM():
                             # print("Prob ", word)
                             prompt.append(word[0])
                             result.append(word[0])
+                            self.sim_words = self.word2vec.wv.most_similar(word)
                             break
                         else:
                             score -= prob
@@ -155,12 +177,12 @@ if __name__ == "__main__":
     genius = lyricsgenius.Genius(TOKEN)
     while True:
         try:
-            artist = genius.search_artist("Lady Gaga", max_songs=5)
+            artist = genius.search_artist("Lady Gaga", max_songs=10)
             break
         except:
             pass
     lyrics = apisa.get_lyrics(artist)[0]
-    print("Generate with NGramLM")
-    model = word2vecLM(lyrics, 3)
-    #result = model.generate_song(artist)
-    #print(result)
+    print("Generate with word2vecLM")
+    model = word2vecLM(lyrics, 5)
+    result = model.generate_song(artist)
+    print(result)
